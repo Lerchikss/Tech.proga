@@ -7,7 +7,7 @@ struct Node {
     double score;
     Node* next;
 
-    Node(const std::string& n, int a, double s)
+    Node( std::string n, int a, double s)
         : name(n), age(a), score(s), next(nullptr) {}
 };
 
@@ -22,13 +22,13 @@ public:
         clear();
     }
 
-    void addAtBeginning(const std::string& name, int age, double score) {
+    void addAtBeginning(std::string name, int age, double score) {
         Node* newNode = new Node(name, age, score);
         newNode->next = head;
         head = newNode;
     }
 
-    void addAtEnd(const std::string& name, int age, double score) {
+    void addAtEnd(std::string name, int age, double score) {
         Node* newNode = new Node(name, age, score);
         if (!head) {
             head = newNode;
@@ -41,7 +41,7 @@ public:
         }
     }
 
-    void addAfter(const std::string& afterName, const std::string& name, int age, double score) {
+    void addAfter(std::string afterName, std::string name, int age, double score) {
         Node* current = head;
         while (current && current->name != afterName) {
             current = current->next;
